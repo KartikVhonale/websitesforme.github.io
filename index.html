@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Currency Converter</title>
+    <style>
+        .main {
+            width: 375px;
+            margin: 30px;
+            padding: 20px;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(97, 96, 96);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0 10px;
+            background: #699bdb;
+        }
+
+        .convertor {
+            padding: 30px;
+            background-color: rgb(27, 26, 26);
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        .currency:hover {
+            background-color: rgb(26, 99, 194);
+            display: inline-blocks;
+            color: white;
+            font-weight: bold;
+        }
+
+        img {
+            max-width: 50px;
+            max-height: 100px;
+        }
+
+        .heading {
+            text-align: center;
+            color: white;
+        }
+
+        .currency {
+            background-color: rgb(41, 42, 48);
+            display: inline-blocks;
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            background-color: black;
+            color: white;
+            width: auto;
+            height: 24px;
+            margin-bottom: 18px;
+            border-radius: 3px;
+            text-align: right;
+        }
+    </style>
+    <script>
+        function mult_in(value) {
+            var ch, ru, er, br;
+            ch = 0.083 * value;
+            ru = 1.34 * value;
+            er = 0.012 * value;
+            br = 0.062 * value;
+
+            document.getElementById('chi').value = ch;
+            document.getElementById('rus').value = ru;
+            document.getElementById('ero').value = er;
+            document.getElementById('braz').value = br;
+        }
+        function mult_ch(value) {
+            var ind, ru, er, br;
+            ind = 11.93 * value;
+            ru = 14.96 * value;
+            er = 0.14 * value;
+            br = 0.74 * value;
+
+            document.getElementById('ind').value = ind;
+            document.getElementById('rus').value = ru;
+            document.getElementById('ero').value = er;
+            document.getElementById('braz').value = br;
+        }
+        function mult_rus(value) {
+            var ind, ch, er, br;
+            ch = 0.062 * value;
+            ind = 0.75 * value;
+            er = 0.0089 * value;
+            br = 0.046 * value;
+            document.getElementById('ind').value = ind;
+            document.getElementById('chi').value = ch;
+            document.getElementById('ero').value = er;
+            document.getElementById('braz').value = br;
+        }
+        function mult_ero(value) {
+            var ind, ch, ru, br;
+            ind = 83.80 * value;
+            ch = 6.96795 * value;
+            ru = 112.05 * value;
+            br = 5.21 * value;
+            document.getElementById('ind').value = ind;
+            document.getElementById('chi').value = ch;
+            document.getElementById('rus').value = ru;
+            document.getElementById('braz').value = br;
+        }
+        function mult_braz(value) {
+            var ind, ch, ru, er;
+            ind = 16.10 * value;
+            ch = 1.34 * value;
+            ru = 21.53 * value;
+            er = 0.19 * value;
+            document.getElementById('ind').value = ind;
+            document.getElementById('chi').value = ch;
+            document.getElementById('rus').value = ru;
+            document.getElementById('ero').value = er;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="heading">
+            <h1>Currency Converter</h1>
+        </div>
+        <div class="convertor">
+            <div class="currency">
+                <img src="India.svg" alt="India">
+                &#8377;
+                &nbsp;
+                <input type="text" id="ind" onkeyup="mult_in(this.value);">
+            </div>
+            <hr>
+            <br>
+            <div class="currency">
+                <img src="China.jpg" alt="china">
+                &#165;
+                &nbsp;
+                <input type="text" id="chi" onkeyup="mult_ch(this.value);">
+            </div>
+            <br>
+            <div class="currency">
+                <img src="Russia.svg" alt="Russia">
+                &#8381;
+                &nbsp;
+                <input type="text" id="rus" onkeyup="mult_rus(this.value);">
+            </div>
+            <br>
+            <div class="currency">
+                <img src="Europe.jpg" alt="Europe">
+                &euro;
+                &nbsp;
+                <input type="text" id="ero" onkeyup="mult_ero(this.value);">
+            </div>
+            <br>
+            <div class="currency">
+                <img src="Brazil.svg" alt="Brazil">
+                R&#36;
+                <input type="text" id="braz" onkeyup="mult_braz(this.value);">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
